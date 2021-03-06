@@ -11,8 +11,11 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.lexy.trivia.controller.AppController;
 import com.lexy.trivia.data.Repository;
+import com.lexy.trivia.model.Question;
 
 import org.json.JSONArray;
+
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -21,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        new Repository().getQuestion();
+        List<Question> questions = new Repository().getQuestion();
+        Log.d("MAIN", "onCreate: " + questions);
     }
 }
